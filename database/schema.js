@@ -39,7 +39,7 @@ for (var i = 0; i < 20; i++) {
                 time: '9:00 PM',
                 currentHeadCount: 6
             }, {
-                time: '9:30',
+                time: '9:30 PM',
                 currentHeadCount: 10
             }
         ]
@@ -60,7 +60,7 @@ for (var i = 0; i < 20; i++) {
                 time: '2:00 PM',
                 currentHeadCount: 8
             }, {
-                time: '2:30',
+                time: '2:30 PM',
                 currentHeadCount: 12
             }
         ]
@@ -81,11 +81,11 @@ for (var i = 0; i < 20; i++) {
                 time: '7:00 PM',
                 currentHeadCount: 10
             }, {
-                time: '7:30',
+                time: '7:30 PM',
                 currentHeadCount: 12
             },
             {
-                time: '8:30',
+                time: '8:30 PM',
                 currentHeadCount: 12
             }
         ]
@@ -111,7 +111,7 @@ for (var i = 0; i < 20; i++) {
                 time: '5:00 PM',
                 currentHeadCount: 8
             }, {
-                time: '8:30',
+                time: '8:30 PM',
                 currentHeadCount: 30
             }
         ]
