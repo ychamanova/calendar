@@ -160,5 +160,11 @@ for (var i = 0; i < 20; i++) {
     restaurantCount = restaurantCount + 5;
 }
 
+//run this file once to load the fake data
+//Restaurant.insertMany(restaurants);
 
-Restaurant.insertMany(restaurants);
+let findSlot = () => {
+    Restaurant.find();
+}
+
+module.exports.findSlot = findSlot;
