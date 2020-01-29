@@ -14,9 +14,8 @@ const restaurantSchema = mongoose.Schema({
 
 let Restaurant = mongoose.model('Restaurant', restaurantSchema);
 
-let findSlot = () => {
-    Restaurant.find();
-}
+let findSlot =
+    Restaurant.find()
 
 
 module.exports.restaurantSchema = restaurantSchema;
