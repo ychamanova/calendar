@@ -2,9 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import DatePicker from "react-datepicker";
 import moment from "moment";
-import "react-datepicker/dist/react-datepicker-cssmodules.css";
+//import "react-datepicker/dist/react-datepicker-cssmodules.css";
 
-class SubmissionForm extends React.Component {
+class Calendar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -121,4 +121,4 @@ class SubmissionForm extends React.Component {
   }
 }
 
-ReactDOM.render(<SubmissionForm />, document.getElementById("calendar"));
+export default Calendar;
