@@ -1,8 +1,7 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import DatePicker from "react-datepicker";
 import moment from "moment";
-//import "react-datepicker/dist/react-datepicker-cssmodules.css";
+import "react-datepicker/dist/react-datepicker-cssmodules.css";
 
 class Calendar extends React.Component {
   constructor(props) {
