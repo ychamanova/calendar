@@ -27988,6 +27988,10 @@ var _moment2 = _interopRequireDefault(_moment);
 
 __webpack_require__(332);
 
+var _Calendar = __webpack_require__(335);
+
+var _Calendar2 = _interopRequireDefault(_Calendar);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -28038,22 +28042,23 @@ var Calendar = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         "div",
-        null,
+        { className: _Calendar2.default.main },
         _react2.default.createElement(
           "form",
           { onSubmit: this.handleSubmit },
           _react2.default.createElement(
             "h1",
-            null,
+            { className: _Calendar2.default.header },
             "Make a reservation"
           ),
           _react2.default.createElement(
             "label",
-            null,
+            { className: _Calendar2.default.partySizeLabel },
             "Party size:",
             _react2.default.createElement(
               "select",
               {
+                className: _Calendar2.default.partySize,
                 name: "partySize",
                 value: this.state.partySize,
                 onChange: this.handleChange
@@ -28162,180 +28167,199 @@ var Calendar = function (_React$Component) {
           ),
           _react2.default.createElement("br", null),
           _react2.default.createElement(
-            "label",
-            null,
-            "Date:"
-          ),
-          _react2.default.createElement(_reactDatepicker2.default, {
-            selected: this.state.date,
-            onChange: this.handleChangeDate
-          }),
-          _react2.default.createElement("br", null),
-          _react2.default.createElement(
-            "label",
-            null,
-            "Time:",
+            "div",
+            { className: _Calendar2.default.container },
             _react2.default.createElement(
-              "select",
-              {
-                name: "time",
-                value: this.state.time,
-                onChange: this.handleChange
-              },
+              "div",
+              { className: _Calendar2.default.item1 },
               _react2.default.createElement(
-                "option",
-                { value: "9:00 AM" },
-                "9:00 AM"
+                "label",
+                { className: _Calendar2.default.dateLabel },
+                "Date:"
               ),
+              _react2.default.createElement("br", null),
+              _react2.default.createElement(_reactDatepicker2.default, {
+                className: _Calendar2.default.date,
+                selected: this.state.date,
+                onChange: this.handleChangeDate
+              }),
+              _react2.default.createElement("br", null)
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: _Calendar2.default.item2 },
               _react2.default.createElement(
-                "option",
-                { value: "9:30 AM" },
-                "9:30 AM"
-              ),
-              _react2.default.createElement(
-                "option",
-                { value: "10:00 AM" },
-                "10:00 AM"
-              ),
-              _react2.default.createElement(
-                "option",
-                { value: "10:30 AM" },
-                "10:30 AM"
-              ),
-              _react2.default.createElement(
-                "option",
-                { value: "9:00 AM" },
-                "11:00 AM"
-              ),
-              _react2.default.createElement(
-                "option",
-                { value: "9:30 AM" },
-                "11:30 AM"
-              ),
-              _react2.default.createElement(
-                "option",
-                { value: "10:00 AM" },
-                "12:00 PM"
-              ),
-              _react2.default.createElement(
-                "option",
-                { value: "10:30 AM" },
-                "12:30 PM"
-              ),
-              _react2.default.createElement(
-                "option",
-                { value: "10:00 AM" },
-                "1:00 PM"
-              ),
-              _react2.default.createElement(
-                "option",
-                { value: "10:30 AM" },
-                "1:30 PM"
-              ),
-              _react2.default.createElement(
-                "option",
-                { value: "10:00 AM" },
-                "2:00 PM"
-              ),
-              _react2.default.createElement(
-                "option",
-                { value: "10:30 AM" },
-                "2:30 PM"
-              ),
-              _react2.default.createElement(
-                "option",
-                { value: "10:00 AM" },
-                "3:00 PM"
-              ),
-              _react2.default.createElement(
-                "option",
-                { value: "10:30 AM" },
-                "3:30 PM"
-              ),
-              _react2.default.createElement(
-                "option",
-                { value: "10:00 AM" },
-                "4:00 PM"
-              ),
-              _react2.default.createElement(
-                "option",
-                { value: "10:30 AM" },
-                "4:30 PM"
-              ),
-              _react2.default.createElement(
-                "option",
-                { value: "10:00 AM" },
-                "5:00 PM"
-              ),
-              _react2.default.createElement(
-                "option",
-                { value: "10:30 AM" },
-                "5:30 PM"
-              ),
-              _react2.default.createElement(
-                "option",
-                { value: "10:00 AM" },
-                "6:00 PM"
-              ),
-              _react2.default.createElement(
-                "option",
-                { value: "10:30 AM" },
-                "6:30 PM"
-              ),
-              _react2.default.createElement(
-                "option",
-                { value: "10:00 AM" },
-                "7:00 PM"
-              ),
-              _react2.default.createElement(
-                "option",
-                { value: "10:30 AM" },
-                "7:30 PM"
-              ),
-              _react2.default.createElement(
-                "option",
-                { value: "10:00 AM" },
-                "8:00 PM"
-              ),
-              _react2.default.createElement(
-                "option",
-                { value: "10:30 AM" },
-                "8:30 PM"
-              ),
-              _react2.default.createElement(
-                "option",
-                { value: "10:00 AM" },
-                "9:00 PM"
-              ),
-              _react2.default.createElement(
-                "option",
-                { value: "10:30 AM" },
-                "9:30 PM"
-              ),
-              _react2.default.createElement(
-                "option",
-                { value: "10:00 AM" },
-                "10:00 PM"
-              ),
-              _react2.default.createElement(
-                "option",
-                { value: "10:30 AM" },
-                "10:30 PM"
-              ),
-              _react2.default.createElement(
-                "option",
-                { value: "10:00 AM" },
-                "11:00 PM"
-              ),
-              _react2.default.createElement(
-                "option",
-                { value: "10:30 AM" },
-                "11:30 PM"
+                "label",
+                null,
+                "Time:",
+                _react2.default.createElement(
+                  "select",
+                  {
+                    name: "time",
+                    value: this.state.time,
+                    onChange: this.handleChange
+                  },
+                  _react2.default.createElement(
+                    "option",
+                    { value: "9:00 AM" },
+                    "9:00 AM"
+                  ),
+                  _react2.default.createElement(
+                    "option",
+                    { value: "9:30 AM" },
+                    "9:30 AM"
+                  ),
+                  _react2.default.createElement(
+                    "option",
+                    { value: "10:00 AM" },
+                    "10:00 AM"
+                  ),
+                  _react2.default.createElement(
+                    "option",
+                    { value: "10:30 AM" },
+                    "10:30 AM"
+                  ),
+                  _react2.default.createElement(
+                    "option",
+                    { value: "9:00 AM" },
+                    "11:00 AM"
+                  ),
+                  _react2.default.createElement(
+                    "option",
+                    { value: "9:30 AM" },
+                    "11:30 AM"
+                  ),
+                  _react2.default.createElement(
+                    "option",
+                    { value: "10:00 AM" },
+                    "12:00 PM"
+                  ),
+                  _react2.default.createElement(
+                    "option",
+                    { value: "10:30 AM" },
+                    "12:30 PM"
+                  ),
+                  _react2.default.createElement(
+                    "option",
+                    { value: "10:00 AM" },
+                    "1:00 PM"
+                  ),
+                  _react2.default.createElement(
+                    "option",
+                    { value: "10:30 AM" },
+                    "1:30 PM"
+                  ),
+                  _react2.default.createElement(
+                    "option",
+                    { value: "10:00 AM" },
+                    "2:00 PM"
+                  ),
+                  _react2.default.createElement(
+                    "option",
+                    { value: "10:30 AM" },
+                    "2:30 PM"
+                  ),
+                  _react2.default.createElement(
+                    "option",
+                    { value: "10:00 AM" },
+                    "3:00 PM"
+                  ),
+                  _react2.default.createElement(
+                    "option",
+                    { value: "10:30 AM" },
+                    "3:30 PM"
+                  ),
+                  _react2.default.createElement(
+                    "option",
+                    { value: "10:00 AM" },
+                    "4:00 PM"
+                  ),
+                  _react2.default.createElement(
+                    "option",
+                    { value: "10:30 AM" },
+                    "4:30 PM"
+                  ),
+                  _react2.default.createElement(
+                    "option",
+                    { value: "10:00 AM" },
+                    "5:00 PM"
+                  ),
+                  _react2.default.createElement(
+                    "option",
+                    { value: "10:30 AM" },
+                    "5:30 PM"
+                  ),
+                  _react2.default.createElement(
+                    "option",
+                    { value: "10:00 AM" },
+                    "6:00 PM"
+                  ),
+                  _react2.default.createElement(
+                    "option",
+                    { value: "10:30 AM" },
+                    "6:30 PM"
+                  ),
+                  _react2.default.createElement(
+                    "option",
+                    { value: "10:00 AM" },
+                    "7:00 PM"
+                  ),
+                  _react2.default.createElement(
+                    "option",
+                    { value: "10:30 AM" },
+                    "7:30 PM"
+                  ),
+                  _react2.default.createElement(
+                    "option",
+                    { value: "10:00 AM" },
+                    "8:00 PM"
+                  ),
+                  _react2.default.createElement(
+                    "option",
+                    { value: "10:30 AM" },
+                    "8:30 PM"
+                  ),
+                  _react2.default.createElement(
+                    "option",
+                    { value: "10:00 AM" },
+                    "9:00 PM"
+                  ),
+                  _react2.default.createElement(
+                    "option",
+                    { value: "10:30 AM" },
+                    "9:30 PM"
+                  ),
+                  _react2.default.createElement(
+                    "option",
+                    { value: "10:00 AM" },
+                    "10:00 PM"
+                  ),
+                  _react2.default.createElement(
+                    "option",
+                    { value: "10:30 AM" },
+                    "10:30 PM"
+                  ),
+                  _react2.default.createElement(
+                    "option",
+                    { value: "10:00 AM" },
+                    "11:00 PM"
+                  ),
+                  _react2.default.createElement(
+                    "option",
+                    { value: "10:30 AM" },
+                    "11:30 PM"
+                  )
+                )
               )
             )
           ),
           _react2.default.createElement("br", null),
-          _react2.default.createElement("input", { type: "submit", value: "Find a Table" })
+          _react2.default.createElement("input", { className: _Calendar2.default.btn, type: "submit", value: "Find a Table" })
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: _Calendar2.default.footer },
+          "Booked 26 times today"
         )
       );
     }
@@ -40796,6 +40820,58 @@ module.exports = function (list, options) {
     lastIdentifiers = newLastIdentifiers;
   };
 };
+
+/***/ }),
+/* 334 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(331);
+exports = ___CSS_LOADER_API_IMPORT___(false);
+exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Alata|Khula:600|Mukta+Malar:600&display=swap);"]);
+// Module
+exports.push([module.i, "html {\n  background-color: burlywood;\n}\n._3bp1KwfjmhznwTbKuctzuf {\n  display: block;\n  width: 20em;\n  margin: 5em;\n  text-align: center;\n  background-color: white;\n  padding: 10px;\n  box-shadow: 5px 10px 8px #888888;\n}\n\n._3oCfqNuJ-ARsZODaDU5lgd {\n  margin: 0;\n  padding: 0.1em;\n  font-family: \"Mukta Malar\", sans-serif;\n  font-size: 1.5em;\n  border-bottom: 2px solid rgb(230, 226, 226);\n}\n\ninput {\n  border: none;\n}\n\nlabel {\n  display: inline-block;\n  text-align: left;\n  font-family: \"Mukta Malar\", sans-serif;\n  font-family: \"Khula\", sans-serif;\n}\n\n.T5PT3NY7kd6Zk8Li3yORO {\n  width: 20em;\n  padding-top: 1em;\n}\n\n._1pEHeuZQN67Ort7ePxam6h {\n  background: transparent;\n  width: 100%;\n  border-bottom: 2px solid rgb(219, 218, 218);\n  outline: 0;\n  display: inline-block;\n  font-size: 0.8em;\n  width: 210px;\n  /* cursor: pointer; */\n  text-decoration: none;\n}\n\nselect {\n  padding: 0;\n  display: inline-block;\n  border: 0;\n  background: transparent;\n  border-bottom: 2px solid rgb(219, 218, 218);\n  outline: 0;\n  display: block;\n  text-align: left;\n  font-size: 0.95em;\n  text-decoration: none;\n  border-radius: 0px;\n  -webkit-appearance: none;\n}\n._45F4P5v_LKtzi1BQO3gDF {\n  display: block;\n  width: 100%;\n  border: none;\n  padding: 1rem 2rem;\n  margin-top: 1em;\n  margin-bottom: 1em;\n  text-decoration: none;\n  background: rgb(202, 70, 73);\n  color: #ffffff;\n  font-family: sans-serif;\n  font-size: 1rem;\n  cursor: pointer;\n  text-align: center;\n  transition: background 250ms ease-in-out, transform 150ms ease;\n  -webkit-appearance: none;\n  -moz-appearance: none;\n}\n.RSAp_ec3G9bxw2VBje06L {\n  margin-top: 1em;\n}\n.rVjdCg9uIu7ng4RbU-SWp {\n  text-align: left;\n}\n\n._1PEWdKFp0ntNa3HaIFPP5p {\n  display: flex;\n}\n\n._2AkzcRdSx1rTgzV5ZwKE2P {\n  width: 50%;\n  margin-top: 1em;\n  margin-left: 0.5em;\n  margin-bottom: 0;\n  padding-left: 0;\n  order: 1;\n  display: inline-block;\n  border: 0;\n  background: transparent;\n  outline: 0;\n  display: block;\n  text-align: left;\n  font-size: 0.95em;\n  text-decoration: none;\n  border-radius: 0px;\n}\n\n._3RNU0utBQn-MRqWVkF05hR {\n  width: 50%;\n  margin: 1em;\n  margin-bottom: 0;\n  padding-left: 0.5em;\n  order: 2;\n  display: inline-block;\n  border: 0;\n  background: transparent;\n  outline: 0;\n  text-align: left;\n  font-size: 0.95em;\n  text-decoration: none;\n  border-radius: 0px;\n}\n", ""]);
+// Exports
+exports.locals = {
+	"main": "_3bp1KwfjmhznwTbKuctzuf",
+	"header": "_3oCfqNuJ-ARsZODaDU5lgd",
+	"partySize": "T5PT3NY7kd6Zk8Li3yORO",
+	"date": "_1pEHeuZQN67Ort7ePxam6h",
+	"btn": "_45F4P5v_LKtzi1BQO3gDF",
+	"partySizeLabel": "RSAp_ec3G9bxw2VBje06L",
+	"dateLabel": "rVjdCg9uIu7ng4RbU-SWp",
+	"container": "_1PEWdKFp0ntNa3HaIFPP5p",
+	"item1": "_2AkzcRdSx1rTgzV5ZwKE2P",
+	"item2": "_3RNU0utBQn-MRqWVkF05hR"
+};
+module.exports = exports;
+
+
+/***/ }),
+/* 335 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var api = __webpack_require__(333);
+            var content = __webpack_require__(334);
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+var exported = content.locals ? content.locals : {};
+
+
+
+module.exports = exported;
 
 /***/ })
 /******/ ]);

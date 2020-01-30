@@ -2,6 +2,7 @@ import React from "react";
 import DatePicker from "react-datepicker";
 import moment from "moment";
 import "react-datepicker/dist/react-datepicker-cssmodules.css";
+import Styles from "../styles/Calendar.css";
 
 class Calendar extends React.Component {
   constructor(props) {
@@ -31,12 +32,13 @@ class Calendar extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={Styles.main}>
         <form onSubmit={this.handleSubmit}>
-          <h1>Make a reservation</h1>
-          <label>
+          <h1 className={Styles.header}>Make a reservation</h1>
+          <label className={Styles.partySizeLabel}>
             Party size:
             <select
+              className={Styles.partySize}
               name="partySize"
               value={this.state.partySize}
               onChange={this.handleChange}
@@ -65,56 +67,64 @@ class Calendar extends React.Component {
           </label>
 
           <br />
-          <label>Date:</label>
-          <DatePicker
-            selected={this.state.date}
-            onChange={this.handleChangeDate}
-          />
+          <div className={Styles.container}>
+            <div className={Styles.item1}>
+              <label className={Styles.dateLabel}>Date:</label>
+              <br />
+              <DatePicker
+                className={Styles.date}
+                selected={this.state.date}
+                onChange={this.handleChangeDate}
+              />
+              <br />
+            </div>
+            <div className={Styles.item2}>
+              <label>
+                Time:
+                <select
+                  name="time"
+                  value={this.state.time}
+                  onChange={this.handleChange}
+                >
+                  <option value="9:00 AM">9:00 AM</option>
+                  <option value="9:30 AM">9:30 AM</option>
+                  <option value="10:00 AM">10:00 AM</option>
+                  <option value="10:30 AM">10:30 AM</option>
+                  <option value="9:00 AM">11:00 AM</option>
+                  <option value="9:30 AM">11:30 AM</option>
+                  <option value="10:00 AM">12:00 PM</option>
+                  <option value="10:30 AM">12:30 PM</option>
+                  <option value="10:00 AM">1:00 PM</option>
+                  <option value="10:30 AM">1:30 PM</option>
+                  <option value="10:00 AM">2:00 PM</option>
+                  <option value="10:30 AM">2:30 PM</option>
+                  <option value="10:00 AM">3:00 PM</option>
+                  <option value="10:30 AM">3:30 PM</option>
+                  <option value="10:00 AM">4:00 PM</option>
+                  <option value="10:30 AM">4:30 PM</option>
+                  <option value="10:00 AM">5:00 PM</option>
+                  <option value="10:30 AM">5:30 PM</option>
+                  <option value="10:00 AM">6:00 PM</option>
+                  <option value="10:30 AM">6:30 PM</option>
+                  <option value="10:00 AM">7:00 PM</option>
+                  <option value="10:30 AM">7:30 PM</option>
+                  <option value="10:00 AM">8:00 PM</option>
+                  <option value="10:30 AM">8:30 PM</option>
+                  <option value="10:00 AM">9:00 PM</option>
+                  <option value="10:30 AM">9:30 PM</option>
+                  <option value="10:00 AM">10:00 PM</option>
+                  <option value="10:30 AM">10:30 PM</option>
+                  <option value="10:00 AM">11:00 PM</option>
+                  <option value="10:30 AM">11:30 PM</option>
+                </select>
+              </label>
+            </div>
+          </div>
           <br />
 
-          <label>
-            Time:
-            <select
-              name="time"
-              value={this.state.time}
-              onChange={this.handleChange}
-            >
-              <option value="9:00 AM">9:00 AM</option>
-              <option value="9:30 AM">9:30 AM</option>
-              <option value="10:00 AM">10:00 AM</option>
-              <option value="10:30 AM">10:30 AM</option>
-              <option value="9:00 AM">11:00 AM</option>
-              <option value="9:30 AM">11:30 AM</option>
-              <option value="10:00 AM">12:00 PM</option>
-              <option value="10:30 AM">12:30 PM</option>
-              <option value="10:00 AM">1:00 PM</option>
-              <option value="10:30 AM">1:30 PM</option>
-              <option value="10:00 AM">2:00 PM</option>
-              <option value="10:30 AM">2:30 PM</option>
-              <option value="10:00 AM">3:00 PM</option>
-              <option value="10:30 AM">3:30 PM</option>
-              <option value="10:00 AM">4:00 PM</option>
-              <option value="10:30 AM">4:30 PM</option>
-              <option value="10:00 AM">5:00 PM</option>
-              <option value="10:30 AM">5:30 PM</option>
-              <option value="10:00 AM">6:00 PM</option>
-              <option value="10:30 AM">6:30 PM</option>
-              <option value="10:00 AM">7:00 PM</option>
-              <option value="10:30 AM">7:30 PM</option>
-              <option value="10:00 AM">8:00 PM</option>
-              <option value="10:30 AM">8:30 PM</option>
-              <option value="10:00 AM">9:00 PM</option>
-              <option value="10:30 AM">9:30 PM</option>
-              <option value="10:00 AM">10:00 PM</option>
-              <option value="10:30 AM">10:30 PM</option>
-              <option value="10:00 AM">11:00 PM</option>
-              <option value="10:30 AM">11:30 PM</option>
-            </select>
-          </label>
-          <br />
-
-          <input type="submit" value="Find a Table" />
+          <input className={Styles.btn} type="submit" value="Find a Table" />
         </form>
+        <div className={Styles.footer}>Booked 26 times today</div>
       </div>
     );
   }
