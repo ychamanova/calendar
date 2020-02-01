@@ -12,12 +12,10 @@ const restaurantSchema = mongoose.Schema({
     ]
 });
 
-let Restaurant = mongoose.model('Restaurant', restaurantSchema);
+const Restaurant = mongoose.model('Restaurant', restaurantSchema);
 
-let findSlot =
-    Restaurant.find()
+
 
 
 module.exports.restaurantSchema = restaurantSchema;
 module.exports.Restaurant = Restaurant;
-module.exports.findSlot = findSlot;

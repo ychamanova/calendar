@@ -3,13 +3,15 @@ import DatePicker from "react-datepicker";
 import moment from "moment";
 import "react-datepicker/dist/react-datepicker-cssmodules.css";
 import Styles from "../styles/Calendar.css";
+import axios from "axios";
 
 class Calendar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       partySize: 1,
-      date: moment(new Date())
+      date: moment(new Date()),
+      time: "9:00 AM"
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -26,8 +28,21 @@ class Calendar extends React.Component {
   }
 
   handleSubmit(event) {
-    alert("Fetching a table for: " + this.state.partySize);
     event.preventDefault();
+    axios
+      .get("id/reservation", {
+        params: {
+          id: 1,
+          size: this.state.partySize,
+          time: this.state.time
+        }
+      })
+      .then(results => {
+        console.log(results);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   render() {
@@ -90,32 +105,32 @@ class Calendar extends React.Component {
                   <option value="9:30 AM">9:30 AM</option>
                   <option value="10:00 AM">10:00 AM</option>
                   <option value="10:30 AM">10:30 AM</option>
-                  <option value="9:00 AM">11:00 AM</option>
-                  <option value="9:30 AM">11:30 AM</option>
-                  <option value="10:00 AM">12:00 PM</option>
-                  <option value="10:30 AM">12:30 PM</option>
-                  <option value="10:00 AM">1:00 PM</option>
-                  <option value="10:30 AM">1:30 PM</option>
-                  <option value="10:00 AM">2:00 PM</option>
-                  <option value="10:30 AM">2:30 PM</option>
-                  <option value="10:00 AM">3:00 PM</option>
-                  <option value="10:30 AM">3:30 PM</option>
-                  <option value="10:00 AM">4:00 PM</option>
-                  <option value="10:30 AM">4:30 PM</option>
-                  <option value="10:00 AM">5:00 PM</option>
-                  <option value="10:30 AM">5:30 PM</option>
-                  <option value="10:00 AM">6:00 PM</option>
-                  <option value="10:30 AM">6:30 PM</option>
-                  <option value="10:00 AM">7:00 PM</option>
-                  <option value="10:30 AM">7:30 PM</option>
-                  <option value="10:00 AM">8:00 PM</option>
-                  <option value="10:30 AM">8:30 PM</option>
-                  <option value="10:00 AM">9:00 PM</option>
-                  <option value="10:30 AM">9:30 PM</option>
-                  <option value="10:00 AM">10:00 PM</option>
-                  <option value="10:30 AM">10:30 PM</option>
-                  <option value="10:00 AM">11:00 PM</option>
-                  <option value="10:30 AM">11:30 PM</option>
+                  <option value="11:00 AM">11:00 AM</option>
+                  <option value="11:30 AM">11:30 AM</option>
+                  <option value="12:00 AM">12:00 PM</option>
+                  <option value="12:30 AM">12:30 PM</option>
+                  <option value="1:00 PM">1:00 PM</option>
+                  <option value="1:30 PM">1:30 PM</option>
+                  <option value="2:00 PM">2:00 PM</option>
+                  <option value="2:30 PM">2:30 PM</option>
+                  <option value="3:00 PM">3:00 PM</option>
+                  <option value="3:30 PM">3:30 PM</option>
+                  <option value="4:00 PM">4:00 PM</option>
+                  <option value="4:30 PM">4:30 PM</option>
+                  <option value="5:00 PM">5:00 PM</option>
+                  <option value="5:30 PM">5:30 PM</option>
+                  <option value="6:00 PM">6:00 PM</option>
+                  <option value="6:30 PM">6:30 PM</option>
+                  <option value="7:00 PM">7:00 PM</option>
+                  <option value="7:30 PM">7:30 PM</option>
+                  <option value="8:00 PM">8:00 PM</option>
+                  <option value="8:30 PM">8:30 PM</option>
+                  <option value="9:00 PM">9:00 PM</option>
+                  <option value="9:30 PM">9:30 PM</option>
+                  <option value="10:00 PM">10:00 PM</option>
+                  <option value="10:30 PM">10:30 PM</option>
+                  <option value="11:00 PM">11:00 PM</option>
+                  <option value="11:30 PM">11:30 PM</option>
                 </select>
               </label>
             </div>
