@@ -3,7 +3,11 @@ import DatePicker from "react-datepicker";
 import moment from "moment";
 import "react-datepicker/dist/react-datepicker-cssmodules.css";
 import Styles from "../styles/Calendar.css";
+<<<<<<< HEAD
 import axios from "axios";
+=======
+import AvailableTimeButton from "./AvailableTimeButton";
+>>>>>>> timecomponent
 
 class Calendar extends React.Component {
   constructor(props) {
@@ -11,7 +15,11 @@ class Calendar extends React.Component {
     this.state = {
       partySize: 1,
       date: moment(new Date()),
+<<<<<<< HEAD
       time: "9:00 AM"
+=======
+      availableTimes: []
+>>>>>>> timecomponent
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -136,8 +144,13 @@ class Calendar extends React.Component {
             </div>
           </div>
           <br />
-
-          <input className={Styles.btn} type="submit" value="Find a Table" />
+          {this.state.availableTimes.length === 0 ? (
+            <input className={Styles.btn} type="submit" value="Find a Table" />
+          ) : (
+            this.state.availableTimes.map(time => (
+              <AvailableTimeButton reserve={this.reserve} time={time} />
+            ))
+          )}
         </form>
         <div className={Styles.footer}>Booked 26 times today</div>
       </div>
