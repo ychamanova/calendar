@@ -3,13 +3,15 @@ import DatePicker from "react-datepicker";
 import moment from "moment";
 import "react-datepicker/dist/react-datepicker-cssmodules.css";
 import Styles from "../styles/Calendar.css";
+import AvailableTimeButton from "./AvailableTimeButton";
 
 class Calendar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       partySize: 1,
-      date: moment(new Date())
+      date: moment(new Date()),
+      availableTimes: []
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -121,8 +123,13 @@ class Calendar extends React.Component {
             </div>
           </div>
           <br />
-
-          <input className={Styles.btn} type="submit" value="Find a Table" />
+          {this.state.availableTimes.length === 0 ? (
+            <input className={Styles.btn} type="submit" value="Find a Table" />
+          ) : (
+            this.state.availableTimes.map(time => (
+              <AvailableTimeButton reserve={this.reserve} time={time} />
+            ))
+          )}
         </form>
         <div className={Styles.footer}>Booked 26 times today</div>
       </div>
