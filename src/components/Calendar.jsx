@@ -1,10 +1,10 @@
 import React from "react";
 import DatePicker from "react-datepicker";
 import moment from "moment";
-import "react-datepicker/dist/react-datepicker-cssmodules.css";
+import "../styles/Datepicker.css";
 import Styles from "../styles/Calendar.css";
 import axios from "axios";
-import AvailableTimeButton from "./AvailableTimeButton";
+import AvailableTimeButton from "./AvailableTimeButton.jsx";
 
 class Calendar extends React.Component {
   constructor(props) {
@@ -12,16 +12,27 @@ class Calendar extends React.Component {
     this.state = {
       partySize: 1,
       date: moment(new Date()),
-      availableTimes: []
+      availableTimes: [],
+      noTimes: false
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleChangeDate = this.handleChangeDate.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.reserve = this.reserve.bind(this);
+  }
+
+  componentDidMount() {
+    const reserved = Math.floor(Math.random() * 100) + 1;
+    this.setState({ reservedTimes: reserved });
   }
 
   handleChange(event) {
-    this.setState({ [event.target.name]: event.target.value });
+    this.setState({
+      [event.target.name]: event.target.value,
+      noTimes: false,
+      availableTimes: []
+    });
   }
 
   handleChangeDate(date) {
@@ -39,11 +50,20 @@ class Calendar extends React.Component {
         }
       })
       .then(results => {
-        console.log(results);
+        if (results.data !== "not available") {
+          this.setState({ noTimes: false });
+          this.setState({ availableTimes: results.data });
+        } else {
+          this.setState({ noTimes: true });
+        }
       })
       .catch(err => {
         console.log(err);
       });
+  }
+
+  reserve() {
+    alert("reserved");
   }
 
   render() {
@@ -137,15 +157,33 @@ class Calendar extends React.Component {
             </div>
           </div>
           <br />
-          {this.state.availableTimes.length === 0 ? (
+
+          {this.state.availableTimes.length === 0 && !this.state.noTimes && (
             <input className={Styles.btn} type="submit" value="Find a Table" />
-          ) : (
-            this.state.availableTimes.map(time => (
-              <AvailableTimeButton reserve={this.reserve} time={time} />
-            ))
           )}
+
+          {this.state.noTimes && (
+            <div className={Styles.notAvailable}>
+              Unfortunately, your party is too large to make an online
+              reservation. We recommend contacting the restaurant directly.
+            </div>
+          )}
+
+          <div className={Styles.btnContainer}>
+            {this.state.availableTimes.length > 1 &&
+              !this.state.noTimes &&
+              this.state.availableTimes.map(time => (
+                <AvailableTimeButton
+                  key={time}
+                  reserve={this.reserve}
+                  time={time}
+                />
+              ))}
+          </div>
         </form>
-        <div className={Styles.footer}>Booked 26 times today</div>
+        <div className={Styles.footer}>
+          Booked {this.state.reservedTimes} times today
+        </div>
       </div>
     );
   }
