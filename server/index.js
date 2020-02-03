@@ -27,7 +27,9 @@ app.get('/id/reservation', (req, res) => {
 
         ((thisTimeslot.length > 0) && (partySize < (maxHeadCount - thisTimeslot[0].currentHeadCount)) ||
             ((thisTimeslot.length === 0) && (partySize < maxHeadCount)))
-            ? res.end('available')
+            ? res.end(
+                JSON.stringify(['7:15 PM', '7:30 PM', '8:00 PM']) //send three available dates to book the place
+            )
             : res.end('not available')
     })
 })

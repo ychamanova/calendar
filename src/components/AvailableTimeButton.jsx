@@ -1,8 +1,8 @@
 import React from "react";
-import Styles from "../styles/index.jsx";
+import Styles from "../styles/AvailableTimeButton.css";
 
 const AvailableTimeButton = props => (
-  <button onclick={props.reserve} className={Styles.timeButton}>
+  <button onClick={props.reserve} className={Styles.timeButton}>
     {props.time}
   </button>
 );
