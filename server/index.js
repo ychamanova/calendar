@@ -1,17 +1,22 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-
+var cors = require('cors');
 const app = express();
-const port = 3004;
+const port = 3001;
 const db = require('../database/schema.js');
 
-
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(express.static('public'));
+app.use('/', express.static('public',
+  {
+    setHeaders: function (res, path) {
+      res.setHeader("Access-Control-Allow-Origin", "*");
+    }
+  }));
 
-app.get('/id/reservation', (req, res) => {
+app.get('/reservation', (req, res) => {
   const reservation = (req.query);
   // requested party size
   const partySize = reservation.size;
@@ -35,6 +40,7 @@ app.get('/id/reservation', (req, res) => {
       && (partySize < (maxHeadCount - thisTimeslot[0].currentHeadCount))
       || ((thisTimeslot.length === 0) && (partySize < maxHeadCount))) {
       // send three available dates to book the place
+      res.set('Access-Control-Allow-Origin', '*')
       res.end(JSON.stringify(['7:15 PM', '7:30 PM', '8:00 PM']));
     } else {
       res.end('not available');

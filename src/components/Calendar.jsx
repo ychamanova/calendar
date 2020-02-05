@@ -43,7 +43,7 @@ class Calendar extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     axios
-      .get('id/reservation', {
+      .get('http://localhost:3001/reservation', {
         params: {
           id: 1,
           size: this.state.partySize,
