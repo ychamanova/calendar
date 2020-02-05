@@ -28679,7 +28679,7 @@ var Calendar = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       var reserved = Math.floor(Math.random() * 100) + 1;
-      this.setState({ reservedTimes: reserved });
+      this.setState({ reservedTimes: reserved, id: location.pathname });
     }
   }, {
     key: 'handleChange',
@@ -28701,7 +28701,7 @@ var Calendar = function (_React$Component) {
       event.preventDefault();
       _axios2.default.get('http://localhost:3001/reservation', {
         params: {
-          id: 1,
+          id: this.state.id,
           size: this.state.partySize,
           time: this.state.time
         }

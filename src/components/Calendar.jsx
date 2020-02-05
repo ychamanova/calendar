@@ -25,7 +25,7 @@ class Calendar extends React.Component {
 
   componentDidMount() {
     const reserved = Math.floor(Math.random() * 100) + 1;
-    this.setState({ reservedTimes: reserved });
+    this.setState({ reservedTimes: reserved, id: location.pathname });
   }
 
   handleChange(event) {
@@ -45,7 +45,7 @@ class Calendar extends React.Component {
     axios
       .get('http://localhost:3001/reservation', {
         params: {
-          id: 1,
+          id: this.state.id,
           size: this.state.partySize,
           time: this.state.time
         }

@@ -9,21 +9,20 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use('/', express.static('public',
-  {
-    setHeaders: function (res, path) {
-      res.setHeader("Access-Control-Allow-Origin", "*");
-    }
-  }));
+app.use('/', express.static('public'));
 
 app.get('/reservation', (req, res) => {
   const reservation = (req.query);
   // requested party size
   const partySize = reservation.size;
+  const id = reservation.id;
+  const editedId = id.split("/").join("");
+  console.log(editedId);
   db.Restaurant.find({
     // find the restaurant in the database based on id
-    restaurantId: reservation.id,
+    restaurantId: editedId,
   }, (err, results) => {
+    console.log(results);
     // array of all reservations for this restaurant
     const { timeslots } = results[0];
     // how many people this restaurant can handle
@@ -47,4 +46,5 @@ app.get('/reservation', (req, res) => {
     }
   });
 });
+
 app.listen(port);
