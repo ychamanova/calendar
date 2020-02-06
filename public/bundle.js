@@ -28699,7 +28699,9 @@ var Calendar = function (_React$Component) {
       var _this2 = this;
 
       event.preventDefault();
-      _axios2.default.get('http://localhost:3001/reservation', {
+      (0, _axios2.default)({
+        method: 'get',
+        url: 'http://localhost:3001/:id/reservation/times',
         params: {
           id: this.state.id,
           size: this.state.partySize,
@@ -28708,6 +28710,7 @@ var Calendar = function (_React$Component) {
       }).then(function (results) {
         if (results.data !== 'not available') {
           _this2.setState({ noTimes: false });
+          console.log(results.data);
           _this2.setState({ availableTimes: results.data });
         } else {
           _this2.setState({ noTimes: true });

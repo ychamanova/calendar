@@ -11,24 +11,32 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/', express.static('public'));
 
-app.get('/reservation', (req, res) => {
+app.use('/:id', express.static('public'));
+
+app.get('/:id/reservation/times', (req, res) => {
   const reservation = (req.query);
+  console.log(reservation);
   // requested party size
   const partySize = reservation.size;
   const id = reservation.id;
   const editedId = id.split("/").join("");
-  console.log(editedId);
   db.Restaurant.find({
     // find the restaurant in the database based on id
     restaurantId: editedId,
   }, (err, results) => {
-    console.log(results);
     // array of all reservations for this restaurant
     const { timeslots } = results[0];
     // how many people this restaurant can handle
     const { maxHeadCount } = results[0];
     // returns an array of reservations under that time. it will always be just one object in this array
     const thisTimeslot = timeslots.filter((timeSlot) => timeSlot.time === reservation.time);
+
+    const { availableTimeSlots } = results[0];
+    const timeSlotArray = [];
+
+    availableTimeSlots.forEach((obj) => {
+      timeSlotArray.push(obj.time);
+    });
 
     // if the reservations in this timeslot exist (are bigger than 0 reservations)
     // and party size is smaller than maximum allowed spots minus already taken spots or if the reservations in this timeslot don't exist and max allowed headcount doesn't exceed the partysize
@@ -40,7 +48,7 @@ app.get('/reservation', (req, res) => {
       || ((thisTimeslot.length === 0) && (partySize < maxHeadCount))) {
       // send three available dates to book the place
       res.set('Access-Control-Allow-Origin', '*')
-      res.end(JSON.stringify(['7:15 PM', '7:30 PM', '8:00 PM']));
+      res.end(JSON.stringify(timeSlotArray));
     } else {
       res.end('not available');
     }
@@ -48,3 +56,4 @@ app.get('/reservation', (req, res) => {
 });
 
 app.listen(port);
+module.exports.port = port;

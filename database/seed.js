@@ -27,6 +27,16 @@ for (var i = 0; i < 20; i++) {
                 time: '9:30 PM',
                 currentHeadCount: 10
             }
+        ],
+        availableTimeSlots: [
+            {
+                time: '6:00 PM',
+            }, {
+                time: '6:30 PM',
+            },
+            {
+                time: '8:00 PM',
+            },
         ]
     }
     let restaurantTwo = {
@@ -48,6 +58,16 @@ for (var i = 0; i < 20; i++) {
                 time: '2:30 PM',
                 currentHeadCount: 12
             }
+        ],
+        availableTimeSlots: [
+            {
+                time: '7:00 PM',
+            }, {
+                time: '9:30 PM',
+            },
+            {
+                time: '10:00 PM',
+            },
         ]
     }
     let restaurantThree = {
@@ -73,6 +93,16 @@ for (var i = 0; i < 20; i++) {
                 time: '8:30 PM',
                 currentHeadCount: 12
             }
+        ],
+        availableTimeSlots: [
+            {
+                time: '2:00 PM',
+            }, {
+                time: '3:30 PM',
+            },
+            {
+                time: '5:00 PM',
+            },
         ]
     }
 
@@ -99,6 +129,16 @@ for (var i = 0; i < 20; i++) {
                 time: '8:30 PM',
                 currentHeadCount: 30
             }
+        ],
+        availableTimeSlots: [
+            {
+                time: '9:00 PM',
+            }, {
+                time: '10:30 PM',
+            },
+            {
+                time: '11:00 PM',
+            },
         ]
     }
 
@@ -134,6 +174,16 @@ for (var i = 0; i < 20; i++) {
                 time: '8:00 PM',
                 currentHeadCount: 16
             }
+        ],
+        availableTimeSlots: [
+            {
+                time: '6:00 PM',
+            }, {
+                time: '10:30 PM',
+            },
+            {
+                time: '10:45 PM',
+            },
         ]
     }
 

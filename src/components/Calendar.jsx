@@ -42,17 +42,19 @@ class Calendar extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    axios
-      .get('http://localhost:3001/reservation', {
-        params: {
-          id: this.state.id,
-          size: this.state.partySize,
-          time: this.state.time
-        }
-      })
+    axios({
+      method: 'get',
+      url: 'http://localhost:3001/:id/reservation/times',
+      params: {
+        id: this.state.id,
+        size: this.state.partySize,
+        time: this.state.time
+      }
+    })
       .then((results) => {
         if (results.data !== 'not available') {
           this.setState({ noTimes: false });
+          console.log(results.data)
           this.setState({ availableTimes: results.data });
         } else {
           this.setState({ noTimes: true });

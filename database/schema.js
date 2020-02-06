@@ -9,6 +9,11 @@ const restaurantSchema = mongoose.Schema({
             time: String, // array of objects
             currentHeadCount: Number
         }
+    ],
+    availableTimeSlots: [
+        {
+            time: String
+        }
     ]
 });
 
