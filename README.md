@@ -4,7 +4,14 @@
 
 * Full-stack restaurant reservation application, where I focused on
 reservations micro-service.
-
+To run a server:
+```javascript
+npm start
+```
+To build files with webpack:
+```javascript
+npm build
+```
 * Used React.js and CSS to build a responsive reservation
 component.
 
